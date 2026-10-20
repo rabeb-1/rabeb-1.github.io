@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Arial, sans-serif;
+  color: #222;
+  background: #f4f6f8;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+  background: #f4f6f8;
+}
+
+.app {
+  width: min(700px, 100%);
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+}
+
+header, .toolbar, .task {
+  display: flex;
+  align-items: center;
+}
+
+header {
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+h1 {
+  margin: 0;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+#themeToggle {
+  background: transparent;
+  font-size: 1.3rem;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 8px;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 11px;
+}
+
+form button {
+  background: #222;
+  color: white;
+}
+
+.toolbar {
+  justify-content: space-between;
+  gap: 12px;
+  margin: 24px 0 12px;
+}
+
+.filters {
+  display: flex;
+  gap: 5px;
+}
+
+.filter {
+  background: #eee;
+}
+
+.filter.active {
+  background: #222;
+  color: white;
+}
+
+#taskList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task {
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.task-text {
+  word-break: break-word;
+}
+
+.task.completed .task-text {
+  text-decoration: line-through;
+  opacity: .55;
+}
+
+.task-info {
+  font-size: .8rem;
+  color: #777;
+  margin-top: 4px;
+}
+
+.delete {
+  background: #eee;
+}
+
+#emptyMessage {
+  text-align: center;
+  color: #777;
+  padding: 30px 0 10px;
+}
+
+body.dark {
+  color: #eee;
+  background: #17191c;
+}
+
+body.dark .app {
+  background: #22252a;
+}
+
+body.dark input,
+body.dark .filter,
+body.dark .delete {
+  background: #30343a;
+  color: #eee;
+  border-color: #444;
+}
+
+body.dark form button,
+body.dark .filter.active {
+  background: #eee;
+  color: #222;
+}
+
+@media (max-width: 600px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .filters {
+    width: 100%;
+  }
+
+  .filter {
+    flex: 1;
+  }
+}
